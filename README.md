@@ -2,11 +2,11 @@
 
 Prueba Técnica FrontEnd
 
-##CH61
+- CH61
 
-**14/01/2026. 12:45**
+- 14/01/2026. 12:45
 
-**Osvaldo Becerril Salgado** 
+- Osvaldo Becerril Salgado 
 
 
 
