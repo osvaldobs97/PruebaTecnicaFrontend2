@@ -6,7 +6,9 @@ const textoPregunta = document.getElementById("textoPregunta");
 const btnAnterior = document.getElementById("btnAnterior");
 const btnSiguiente = document.getElementById("btnSiguiente");
 const contadorPregunta = document.getElementById("contadorPregunta");
-
+const resumen = document.getElementById("resumen");
+const listaResumen = document.getElementById("listaResumen");
+const puntajeFinal = document.getElementById("puntajeFinal");
 
 
 let indiceActual = 0;
@@ -80,7 +82,7 @@ btnSiguiente.addEventListener("click", () => {
         indiceActual++;
         mostrarPregunta();
     } else {
-        mostrarResultado();
+        mostrarResumen();
     }
 });
 //funcion para actualizar las preguntas
@@ -96,17 +98,72 @@ function mostrarPregunta() {
         if (respuestasUsuario[indiceActual] === index) {
             radio.checked = true;
         }
+        btnAnterior.disabled = indiceActual === 0;
+        btnSiguiente.textContent =
+            indiceActual === preguntas.length - 1 ? "Finalizar" : "Siguiente →";
     });
 }
-
+//conservar respuestas
 radios.forEach((radio, index) => {
     radio.addEventListener("change", () => {
         respuestasUsuario[indiceActual] = index;
     });
-
-    window.onload = function () {
-        mostrarPregunta();
-    };
-
-
 });
+//Muestra el resultado y las preguntas equivocadas
+function mostrarResumen() {
+    let aciertos = 0;
+
+    let resultado = `
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-body">
+                        <h2 class="mb-4 text-center">Resumen del cuestionario</h2>
+                            <ul class="list-group mb-3">
+                    `;
+
+    preguntas.forEach((pregunta, index) => {
+        if (respuestasUsuario[index] === pregunta.correcta) {
+            resultado += `
+        <li class="list-group-item list-group-item-success">
+            Pregunta ${index + 1}: Correcta
+        </li>
+        `;
+            aciertos++;
+        } else {
+            resultado += `
+        <li class="list-group-item list-group-item-danger">
+            Pregunta ${index + 1}: Incorrecta
+        </li>
+        `;
+        }
+    });
+    resultado += `
+        </ul>
+            <h4 class="text-center mb-4">
+                Resultado final: ${aciertos} / ${preguntas.length}
+            </h4>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" onclick="reiniciarCuestionario()">
+                        Reintentar
+                    </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+`;
+
+    document.body.innerHTML = resultado;
+}
+
+
+function reiniciarCuestionario() {
+    location.reload();
+}
+
+window.onload = function () {
+    mostrarPregunta();
+};
