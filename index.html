@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Prueba Front</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body>
+    <main class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <h2>Instrucciones</h2>
+                        <p>
+                            Este es un cuestionario de N preguntas.
+                            Puedes navegar entre las preguntas sin perder la respuesta seleccionada.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <p id="textoPregunta">¿Cuál es la raíz cuadrada de 25?</p>
+                        <p id="contadorPregunta" class="text-muted mb-0"></p>
+                    </div>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio1">
+                    <label class="form-check-label" for="radio1">5</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio2">
+                    <label class="form-check-label" for="radio2">3</label>
+                </div>
+
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio3">
+                    <label class="form-check-label" for="radio3">25 no tiene raíz cuadrada</label>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input class="form-check-input" type="radio" name="radioDefault" id="radio4">
+                    <label class="form-check-label" for="radio4">2</label>
+                </div>
+
+                <div class="d-flex justify-content-between">
+                    <button type="button" class="btn btn-primary" id="btnAnterior">
+                        ← Anterior
+                    </button>
+                    <button type="button" class="btn btn-primary" id="btnSiguiente">
+                        Siguiente →
+                    </button>
+
+                </div>
+
+
+            </div>
+            <div class="col-md-2"></div>
+        </div>
+    </main>
+</body>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+<script src="./js/main.js"></script>
+</body>
+
+</html>
